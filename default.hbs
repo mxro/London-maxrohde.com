@@ -56,10 +56,10 @@
                     <div class="gh-head-members">
                         {{#unless @member}}
                             {{#unless @site.members_invite_only}}
-                                <a class="gh-head-link" href="#/portal/signin" data-portal="signin">{{t "Sign in"}}</a>
-                                <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signup" data-portal="signup">{{t "Subscribe"}}</a>
+                                <a class="gh-head-link" href="https://mxro.medium.com/" target="_blank" rel="noopener">Follow</a>
+                                <a class="gh-head-btn gh-btn gh-primary-btn" href="https://mxro.medium.com/" target="_blank" rel="noopener">{{t "Subscribe"}}</a>
                             {{else}}
-                                <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signin" data-portal="signin">{{t "Sign in"}}</a>
+                                <a class="gh-head-btn gh-btn gh-primary-btn" href="https://mxro.medium.com/" target="_blank" rel="noopener">Follow</a>
                             {{/unless}}
                         {{else}}
                             <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/account" data-portal="account">{{t "Account"}}</a>
@@ -85,7 +85,7 @@
                 </nav>
             {{/if}}
             <div class="gh-powered-by">
-                {{{t "Powered by {ghostlink}" ghostlink="<a href=\"https://ghost.org/\" target=\"_blank\" rel=\"noopener\">Ghost</a>"}}}
+                {{{t "Part of {ghostlink}" ghostlink="<a href=\"https://pureleap.com/\" target=\"_blank\" rel=\"noopener\">Pureleap</a>"}}}
             </div>
         </div>
     </footer>
@@ -96,9 +96,35 @@
     {{> "pswp"}}
 {{/is}}
 
-<script src="{{asset "built/main.min.js"}}"></script>
+    <script src="{{asset "built/main.min.js"}}"></script>
 
-{{ghost_foot}}
+    <style>
+        .gh-portal-launcher {
+            display: none !important;
+        }
+        .footer-subscribe-button {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1000;
+            padding: 10px 20px;
+            background: #131313;
+            color: #fff;
+            border-radius: 100px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+        .footer-subscribe-button:hover {
+            transform: scale(1.05);
+            opacity: 1;
+        }
+    </style>
+    <a class="footer-subscribe-button" href="https://mxro.medium.com/" target="_blank" rel="noopener">Subscribe</a>
+
+    {{ghost_foot}}
 
 </body>
 </html>
